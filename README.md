@@ -37,11 +37,13 @@ git add README.md website
 git commit -m "更新官网"
 git push origin main
 git subtree split --prefix website -b gh-pages
-git push origin gh-pages --force
+git push origin gh-pages
 git branch -D gh-pages
 ```
 
 GitHub Pages 会从 `gh-pages` 分支根目录提供静态文件。发布后等待几分钟，再打开线上地址确认资源和下载链接。
+
+首次配置时，在仓库 **Settings → Pages → Build and deployment** 选择 **Deploy from a branch**，分支设为 `gh-pages`、目录设为 `/ (root)`。本项目已完成该配置；`.nojekyll` 让 GitHub 直接提供静态页面。
 
 ## 已完成的检查
 
