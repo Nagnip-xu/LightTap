@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2458bd">
+  <meta name="description" content="轻点 LightTap，一款轻量的 Android 连点器。自由设置点击位置、间隔和轮数，悬浮控制，随时停止。无广告、不联网，无需 root。">
+  <meta property="og:title" content="轻点 LightTap · 重复的点击，轻点就好。">
+  <meta property="og:description" content="轻量 Android 连点器。先试试网页演示，再把重复的点击交给轻点。">
+  <meta property="og:type" content="website">
+  <title>轻点 LightTap · 重复的点击，轻点就好。</title>
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/fonts/noto-sans-sc.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <!--
+  THESIS: Let visitors understand repeat tapping by trying a finite, draggable demonstration before downloading.
+  OWN-WORLD: LightTap's cobalt #2458BD, cool white, tonal blue, rounded native controls; Noto Sans SC and Manrope.
+  STORY: Understand the app, move numbered targets, run five sample rounds, see real screens, learn three setup steps, download.
+  FIRST VIEWPORT: A quiet horizontal nav, centered two-line display and download action, then a broad interactive tap field spanning the page.
+  FORM: Grounded structure 3 of 7, full-width interactive demonstration; surface seed 805304ec, existing Android identity expanded for web.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 5v6h6M4.5 10a8 8 0 1 1 .5 7"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24"><circle cx="9" cy="5" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="19" r="1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.7-1.6 6.7-7A5.4 5.4 0 0 0 19.2 4a5 5 0 0 0-.1-4S17.8-.4 15 1.5a13 13 0 0 0-7 0C5.2-.4 3.9 0 3.9 0A5 5 0 0 0 3.8 4a5.4 5.4 0 0 0-1.5 4.3c0 5.4 3.4 6.6 6.7 7A3.5 3.5 0 0 0 8 18v4" transform="translate(1 1) scale(.9)"/></symbol>
+    <symbol id="i-android" viewBox="0 0 24 24"><path d="m7 4-2-3m12 3 2-3M4 12a8 8 0 0 1 16 0v6H4Z"/><circle cx="8" cy="9" r=".6"/><circle cx="16" cy="9" r=".6"/><path d="M8 18v4m8-4v4M1 11v6m22-6v6"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H4m7-7-7 7 7 7"/></symbol>
+    <symbol id="i-cursor" viewBox="0 0 24 28"><path d="m3 2 17 14-8 1-4 8Z"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="nav-wrap container">
+      <a class="brand" href="#" aria-label="轻点首页">
+        <img src="./assets/icon.svg" width="36" height="36" alt="">
+        <span>轻点<span class="brand-en">LightTap</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <a href="#experience">功能体验</a><a href="#guide">上手指南</a><a href="#questions">常见问题</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="source-link" href="https://github.com/Nagnip-xu/LightTap" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看轻点源码（新窗口）"><svg class="icon"><use href="#i-github"/></svg><span>GitHub</span></a>
+        <a class="button button-small" href="#download">下载轻点<svg class="icon"><use href="#i-download"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <h1 id="hero-title">重复的点击，<br><span>轻点就好。</span></h1>
+      <p class="hero-description">设好位置与节奏，把重复交给轻点。<br>一个轻巧、可控的 Android 连点器。</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://github.com/Nagnip-xu/LightTap/releases/download/v1.0.4/LightTap-1.0.4.apk"><svg class="icon"><use href="#i-download"/></svg>下载 Android 版</a>
+        <a class="text-action" href="#experience">先试一下<svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="version-note"><svg class="icon"><use href="#i-android"/></svg>Android 8.0+<span aria-hidden="true">·</span>v1.0.4<span aria-hidden="true">·</span>约 41 KB</p>
+    </section>
+
+    <section id="experience" class="experience container" aria-labelledby="experience-title">
+      <div class="demo-heading"><h2 id="experience-title">动手试试，就会了。</h2><span>网页模拟演示，不会操作你的设备</span></div>
+      <div class="demo-board" id="demo-board">
+        <div class="demo-stage" id="demo-stage" aria-label="连点演示区域">
+          <div class="field-label" aria-hidden="true">你定位置，轻点执行。</div>
+          <svg class="target-path" id="target-path" width="100%" height="100%" aria-hidden="true"><path id="connection"/></svg>
+          <div class="floating-toolbar" id="toolbar" role="group" aria-label="模拟悬浮栏">
+            <button class="tool-button drag-handle" id="drag-toolbar" aria-label="移动悬浮栏，可用方向键调整" title="拖动悬浮栏"><svg class="icon"><use href="#i-grip"/></svg></button>
+            <button class="tool-button play-button" id="play-demo" aria-label="开始演示" title="开始演示"><svg class="icon"><use href="#i-play"/></svg></button>
+            <span class="tool-divider" aria-hidden="true"></span>
+            <button class="tool-button" id="add-target" aria-label="添加点击位置" title="添加位置"><svg class="icon"><use href="#i-plus"/></svg></button>
+            <button class="tool-button" id="remove-target" aria-label="删除最后一个点击位置" title="删除最后一个位置"><svg class="icon"><use href="#i-minus"/></svg></button>
+            <button class="tool-button" id="reset-demo" aria-label="重置演示" title="重置演示"><svg class="icon"><use href="#i-reset"/></svg></button>
+          </div>
+          <div id="targets"></div>
+          <svg class="demo-cursor icon" id="demo-cursor" aria-hidden="true"><use href="#i-cursor"/></svg>
+          <div class="field-bottom"><p class="demo-instruction" id="demo-instruction">拖动编号调整位置，再点播放</p><p class="click-count"><span id="tap-count">0</span> 次点击</p></div>
+        </div>
+        <div class="demo-settings">
+          <div class="mode-options" role="group" aria-label="演示点击模式"><button class="mode-option" data-mode="single" aria-pressed="false">单点点击</button><button class="mode-option" data-mode="multi" aria-pressed="true">多点顺序</button></div>
+          <label class="speed-control" for="demo-speed">点击间隔<input id="demo-speed" type="range" min="300" max="1200" step="100" value="600"><output id="speed-value" for="demo-speed">600 毫秒</output></label>
+        </div>
+      </div>
+      <div class="demo-caption"><span id="demo-status" role="status" aria-live="polite">演示将完成 5 轮，可随时停止。</span><span>真实应用最多支持 10 个点击位置</span></div>
+      <noscript><p class="no-script">互动演示需要启用 JavaScript。你仍可浏览下方介绍或直接下载安装包。</p></noscript>
+    </section>
+
+    <section class="features section container" aria-labelledby="features-title">
+      <div class="feature-copy">
+        <h2 id="features-title">节奏交给它，<br>时间留给你。</h2>
+        <p class="section-description">需要反复点的地方，设定一次就好。<br>从第一次按下，到最后一轮结束，都由你决定。</p>
+        <dl class="feature-list">
+          <div><dt>一个位置，或一组顺序</dt><dd>单点反复点击，多点按编号循环。拖动圆点，想点哪里就放哪里。</dd></div>
+          <div><dt>快慢长短，自己设定</dt><dd>点击间隔、按压时长、开始延迟分别可调，找到适合你的节奏。</dd></div>
+          <div><dt>开始有数，结束有度</dt><dd>按轮数、按时长，或由你手动停止。右侧返回箭头，一键回到设置。</dd></div>
+        </dl>
+      </div>
+      <div class="screen-showcase">
+        <div class="screen-top"><span id="screen-label">应用实际界面</span><div class="screen-modes" role="group" aria-label="查看应用截图"><button data-screen="light" aria-pressed="true">浅色</button><button data-screen="dark" aria-pressed="false">深色</button></div></div>
+        <div class="phone-frame"><img id="app-screen" src="./assets/app-light.webp" width="540" height="1200" alt="轻点浅色主界面：权限状态、点击模式和点击节奏设置" loading="lazy" decoding="async"></div>
+        <p class="screen-caption">跟随系统浅深色 · 参数与位置保存在本机</p>
+      </div>
+    </section>
+
+    <section id="guide" class="guide section" aria-labelledby="guide-title">
+      <div class="container">
+        <div class="section-heading"><h2 id="guide-title">三步，开始轻点。</h2><p>没有复杂流程，<br>准备好权限就可以出发。</p></div>
+        <ol class="guide-steps">
+          <li><span class="step-number" aria-hidden="true">1</span><h3>开启两项权限</h3><p>允许显示悬浮窗，并开启无障碍点击服务。首页会显示连接状态。</p><div class="step-detail"><svg class="icon"><use href="#i-check"/></svg>悬浮窗 + 无障碍</div></li>
+          <li><span class="step-number" aria-hidden="true">2</span><h3>设好点击节奏</h3><p>选单点或多点，设置间隔和结束条件。先在内置测试区确认一下。</p><div class="step-detail"><span class="mini-dot"></span>默认 300 毫秒 · 100 轮</div></li>
+          <li><span class="step-number" aria-hidden="true">3</span><h3>拖动编号，点击开始</h3><p>打开悬浮控制，切换到目标应用。把编号拖到位置，按播放开始。</p><div class="step-detail"><svg class="icon"><use href="#i-play"/></svg>随时停止，随时返回</div></li>
+        </ol>
+        <p class="guide-note">第一次使用，建议先点应用里的「先在测试区试一下」。</p>
+      </div>
+    </section>
+
+    <section id="download" class="download-section" aria-labelledby="download-title">
+      <div class="container download-layout">
+        <div><h2 id="download-title">轻一点。<br>只做好点击。</h2><p>不联网，无广告，不读取屏幕内容。<br>只有你按下开始，它才会执行。</p><a class="source-on-blue" href="https://github.com/Nagnip-xu/LightTap" target="_blank" rel="noopener noreferrer">源码公开，细节可查<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <div class="download-action"><img src="./assets/icon-white.svg" width="72" height="72" alt=""><p class="download-app-name">轻点 <span>LightTap</span></p><p class="download-version">v1.0.4 · Android 8.0 及以上</p><a class="button button-white" href="https://github.com/Nagnip-xu/LightTap/releases/download/v1.0.4/LightTap-1.0.4.apk"><svg class="icon"><use href="#i-download"/></svg>下载 Android 安装包</a><a class="release-link" href="https://github.com/Nagnip-xu/LightTap/releases/tag/v1.0.4" target="_blank" rel="noopener noreferrer">查看更新与文件校验<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section>
+
+    <section id="questions" class="questions section container" aria-labelledby="questions-title">
+      <div><h2 id="questions-title">你可能还想知道</h2><p>把常见的问题，<br>先说明白。</p></div>
+      <div class="question-list">
+        <details><summary>需要 root 吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer"><p>不需要。轻点支持 Android 8.0 及以上，使用 Android 提供的无障碍手势接口。你只需按引导开启悬浮窗与无障碍服务。</p></div></details>
+        <details><summary>怎样停止，或回到软件？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer"><p>悬浮栏的方形按钮用于停止；右侧返回箭头会停止点击、收起悬浮栏并返回轻点。锁屏、旋转屏幕或服务中断也会停止，之后不会自动恢复执行。已经开始的按压最多在 1 秒内结束。</p></div></details>
+        <details><summary>为什么无障碍显示「受限设置」？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer"><p>Android 13 及以上可能对侧载应用设置限制。确认安装来源和权限用途后，可在系统「应用信息 → 右上角菜单 → 允许受限设置」中按系统流程处理。不同手机的入口可能不同。</p></div></details>
+        <details><summary>下载安装时出现风险提示怎么办？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer"><p>请从项目的 GitHub 发布页下载，并核对文件校验值。提示由系统、浏览器或安全软件决定，应用不能自行取消。若被明确判定为恶意程序，先停止安装并向对应厂商核查。</p><a href="https://github.com/Nagnip-xu/LightTap/releases/tag/v1.0.4" target="_blank" rel="noopener noreferrer">查看发布与校验信息<svg class="icon"><use href="#i-arrow"/></svg></a></div></details>
+        <details><summary>可以在游戏中使用吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer"><p>请先确认游戏是否允许自动操作。自动点击可能违反游戏规则并导致账号处罚，轻点不保证游戏兼容性、不被检测或不封号，也不提供反作弊绕过功能。</p></div></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container"><a class="brand" href="#" aria-label="返回轻点首页"><img src="./assets/icon.svg" width="28" height="28" alt=""><span>轻点<span class="brand-en">把重复的点击交给它</span></span></a><div><a href="https://github.com/Nagnip-xu/LightTap/issues" target="_blank" rel="noopener noreferrer">反馈问题</a><a href="https://github.com/Nagnip-xu/LightTap/blob/main/README.md" target="_blank" rel="noopener noreferrer">完整文档</a><span>由 Nagnip-xu 制作</span></div></footer>
+</body>
+</html>
