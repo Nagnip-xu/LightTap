@@ -6,6 +6,8 @@
 
 **[下载最新版 APK](https://github.com/Nagnip-xu/LightTap/releases/latest)** · [更新记录](CHANGELOG.md) · [验证记录](TESTING.md) · [反馈问题](https://github.com/Nagnip-xu/LightTap/issues)
 
+**[访问轻点官网](https://nagnip-xu.github.io/LightTap/)** · [查看官网源码](website/)
+
 ## 界面预览
 
 | 主界面 | 悬浮控制 | 深色主题与结束条件 |
@@ -13,6 +15,14 @@
 | <img src="docs/images/main-light.png" width="240" alt="轻点主界面，包含权限状态、点击模式和节奏设置"> | <img src="docs/images/overlay.png" width="240" alt="悬浮工具栏和可拖动的编号点击目标"> | <img src="docs/images/settings-dark.png" width="240" alt="深色主题下的圆角结束条件菜单，当前选择运行指定时长"> |
 
 以上均为 Android 15 模拟器的实际截图，部分截图展示测试时的参数；首次安装的默认参数见下表。
+
+## 官网
+
+官网已通过 GitHub Pages 发布：<https://nagnip-xu.github.io/LightTap/>。
+
+官网面向普通用户，提供中文功能介绍、可拖动的网页连点演示、真实应用截图、三步上手指南、常见问题和 APK 下载入口。网页演示只改变页面内的模拟状态，不会操作电脑或手机。
+
+官网源码位于 [`website/`](website/)，使用原生 HTML、CSS 和 JavaScript，无前端框架或运行时依赖。页面通过 `gh-pages` 分支发布；修改官网后，先在本地预览并检查，再按官网目录中的发布说明更新线上页面。
 
 ## 能做什么
 
