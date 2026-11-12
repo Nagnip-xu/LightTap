@@ -1,0 +1,12 @@
+<resources>
+    <color name="primary">#2458BD</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="background">#F6F8FC</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#EAF0FA</color>
+    <color name="text">#182438</color>
+    <color name="text_secondary">#536279</color>
+    <color name="outline">#CDD6E4</color>
+    <color name="success">#266344</color>
+    <color name="error">#B3261E</color>
+</resources>

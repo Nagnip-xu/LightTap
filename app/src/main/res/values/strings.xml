@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">轻点</string>
+    <string-array name="stop_modes">
+        <item>手动停止</item>
+        <item>完成指定轮数</item>
+        <item>运行指定时长</item>
+    </string-array>
+    <string name="help_title">使用轻点</string>
+    <string name="help_permissions">开启悬浮窗和无障碍服务</string>
+    <string name="help_parameters">设置模式、点击间隔和次数</string>
+    <string name="help_targets">打开悬浮栏，拖动编号定位</string>
+    <string name="help_start">开始点击</string>
+    <string name="help_stop">停止点击</string>
+    <string name="help_return">返回轻点</string>
+    <string name="help_move">拖动左侧把手可移动悬浮栏。</string>
+    <string name="help_done">知道了</string>
+    <string name="test_count">%1$d 次\n\n点击这里</string>
+    <string name="accessibility_name">轻点 · 自动点击</string>
+    <string name="accessibility_description">仅在你点击悬浮栏的开始按钮后，按你设置的位置、间隔与次数执行点击。此服务不读取屏幕内容、不收集数据、不联网。锁屏或返回轻点即停止。请仅在允许自动操作的场景使用。</string>
+</resources>
